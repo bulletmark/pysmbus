@@ -53,6 +53,7 @@ class SMBus(object):
 
     def _set_addr(self, addr):
         if self.addr != addr:
+            self.addr = addr
             ioctl(self.fd, I2C_SLAVE, addr);
 
     def write_byte_data(self, i2c_addr, register, value):
